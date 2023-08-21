@@ -4,8 +4,22 @@ import Image from 'next/image';
 import React, { useState, useEffect, useRef } from 'react'
 import Tab1 from './tab1/tab1';
 import Tab2 from './tab2/tab2';
+import Link from 'next/link';
 
-export default function TabContent({hidden}) {
+export default function TabContent() {
+   const [hidden, setHidden] = useState(false);
+   React.useEffect(() => {
+     const toggleVisible = () => {
+       const scrolled = document.documentElement.scrollTop;
+       if (scrolled > 60) {
+         setHidden(true);
+       } else {
+         setHidden(false);
+       }
+     };
+     document.addEventListener("scroll", toggleVisible);
+     return () => document.removeEventListener("scroll", toggleVisible);
+   }, []);
     const [activeTab, setActiveTab] = useState("tab1");
     const ref = useRef(null);
     const [hiddenTab, setHiddenTab] = useState(false);
@@ -32,7 +46,7 @@ export default function TabContent({hidden}) {
             className: "bg-transparent rounded-none shadow-none",
           }}
         >
-          <button className="w-1/6 cursor-pointer hover:underline text-sm font-medium text-indigo-600 flex item-center">
+          <Link href="/" className="w-1/6 cursor-pointer hover:underline text-sm font-medium text-indigo-600 flex item-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -48,7 +62,7 @@ export default function TabContent({hidden}) {
               />
             </svg>
             Trở lại trang chủ
-          </button>
+          </Link>
           <div className="w-5/6 flex items-center justify-center">
             <Tab
               value={"tab1"}
