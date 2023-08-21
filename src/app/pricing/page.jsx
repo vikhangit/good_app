@@ -1,6 +1,6 @@
 
 import Link from 'next/link'
-import React, {useState} from 'react'
+import React from 'react'
 import TabContent from './element/tab-content';
 import Support from './element/support';
 export const metadata = {
