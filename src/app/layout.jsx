@@ -14,14 +14,14 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-export const metadata = {
-  metadataBase: new URL("https://jsonplaceholder.typicode.com"),
-  title: "GOOD APP",
-  description: "Description",
-  verification: {
-    google: "google-site-verification=87878787",
-  },
-};
+// export const metadata = {
+//   metadataBase: new URL("https://jsonplaceholder.typicode.com"),
+//   title: "GOOD APP",
+//   description: "Description",
+//   verification: {
+//     google: "google-site-verification=87878787",
+//   },
+// };
 
 export default function RootLayout({ children }) {
   useEffect(() => {
